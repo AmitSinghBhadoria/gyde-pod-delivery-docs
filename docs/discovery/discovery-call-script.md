@@ -29,6 +29,25 @@ By the end of this call, we need enough information to produce the **Discovery O
 
 ---
 
+## Call Flow (60 minutes)
+
+| Section | Lead | Time | What you extract |
+|---|---|---|---|
+| **Opening** | Shivani | 3 min | Set agenda, ask for Prasanna's additions |
+| **1. The Problem** | Amit | 10 min | Current workflow, pain points, handle time, escalation rate |
+| **2. Platform & Integrations** | Amit | 10 min | Freshdesk access, KB source, escalation channel, LLM provider, cloud, deployment surface |
+| **3. Success Criteria** | Shivani (Amit supports) | 10 min | Measurable targets, quality thresholds, who evaluates, go-live decision |
+| **4. Scope & Boundaries** | Shivani | 5 min | In/out of scope, Phase 2 vision |
+| **5. Data & Privacy** | Amit | 5 min | PII, classification, retention, refresh strategy |
+| **6. Delivery & Cadence** | Shivani | 7 min | Comms channel, cadence agreement, turnaround time, timeline flexibility |
+| **7. Deliverables & Cost** | Shivani | 5 min | Deliverable priorities, budget constraints, cloud account |
+| **8. Governance** | Amit | 3 min | HITL confirmation, failure mode, compliance needs |
+| **Closing** | Shivani | 2 min | Summarize next steps, confirm charter delivery timeline |
+
+> **Key ground rules**: Listen more than talk, don't commit to architecture on the spot, write down every threshold Prasanna mentions, and if you run short on time, sections 1-3 and 6 are non-negotiable.
+
+---
+
 ## Call Script
 
 ### OPENING (Shivani leads -- 3 minutes)
