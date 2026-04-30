@@ -18,3 +18,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Client-facing Word docs (generated, not tracked in public repo)
+/client-docs
