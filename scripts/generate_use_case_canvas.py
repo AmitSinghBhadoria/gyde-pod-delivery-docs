@@ -161,7 +161,10 @@ def build_canvas():
             left={"sz": "0", "color": "1B2A4A"},
             right={"sz": "0", "color": "1B2A4A"})
 
-    doc.add_paragraph()  # spacer
+    # tight spacer
+    spacer0 = doc.add_paragraph()
+    spacer0.space_before = Pt(2)
+    spacer0.space_after = Pt(2)
 
     # --- Mission Statement (full width) ---
     mission_table = doc.add_table(rows=1, cols=1)
@@ -186,10 +189,13 @@ def build_canvas():
         size=9.5, color=DARK_GRAY
     )
 
-    doc.add_paragraph()  # spacer
+    # tight spacer
+    spacer = doc.add_paragraph()
+    spacer.space_before = Pt(2)
+    spacer.space_after = Pt(2)
 
     # --- Main Canvas Grid: 4 columns x 3 rows ---
-    canvas = doc.add_table(rows=4, cols=4)
+    canvas = doc.add_table(rows=3, cols=4)
     canvas.alignment = WD_TABLE_ALIGNMENT.CENTER
 
     border_style = {"sz": "4", "color": "CCCCCC"}
@@ -288,7 +294,7 @@ def build_canvas():
     ])
 
     # ============================================
-    # ROW 2: Out of Scope (2 cols) | Open Questions (2 cols)
+    # ROW 2: Out of Scope (2 cols) | Feedback Loop & Guardrails (2 cols)
     # ============================================
 
     # --- Out of Scope ---
@@ -302,52 +308,24 @@ def build_canvas():
         "\u2716  Auto-send / auto-reply (human always approves)",
         "\u2716  Live KB refresh (static Excel data)",
         "\u2716  Production deployment / scaling",
-        "\u2716  Phase 2 features (not yet defined)",
     ])
 
-    # --- Open Questions ---
+    # --- Feedback Loop & Guardrails ---
     cell = merge_cells_in_row(canvas, 2, 2, 3)
-    set_cell_shading(cell, "F5F5F5")
-    add_section_title(cell, "OPEN QUESTIONS")
+    set_cell_shading(cell, "E8F0F8")
+    add_section_title(cell, "FEEDBACK LOOP & GUARDRAILS", color=MEDIUM_BLUE)
     add_bullet_items(cell, [
-        ("Cost target", "Cost-per-ticket for production? (ask Prasanna)"),
-        ("Confidence UX", "Binary or three-tier indicator? (propose to client)"),
-        ("LLM selection", "Which provider for this use case? (Architecture Sketch)"),
-        ("Vector store", "pgvector / Qdrant / ChromaDB / ES? (Architecture Sketch)"),
-        ("Synthetic data", "Distribution across categories? (Evaluation Plan)"),
-        ("Feedback storage", "Where do agent edits persist? (Architecture Sketch)"),
+        ("Feedback", "Agent rates + edits response \u2192 saved as correct answer \u2192 system learns"),
+        ("Profanity", "Zero tolerance \u2014 all outputs checked"),
+        ("Adversarial", "Graceful handling of misuse and edge cases"),
+        ("Fallback", "'No confident answer' disclaimer when confidence is low"),
+        ("Audit", "All copilot decisions logged for traceability"),
     ])
 
-    # ============================================
-    # ROW 3: Feedback Loop + Guardrails (full width)
-    # ============================================
-
-    cell = merge_cells_in_row(canvas, 3, 0, 3)
-    set_cell_shading(cell, "E8F0F8")
-    add_section_title(cell, "FEEDBACK LOOP & GUARDRAILS (Client Requirement)", color=MEDIUM_BLUE)
-    p = cell.add_paragraph()
-    p.space_before = Pt(1)
-    p.space_after = Pt(2)
-    add_formatted_text(p, "Feedback loop: ", bold=True, size=8.5)
-    add_formatted_text(
-        p,
-        "Agent rates response ('was it helpful') \u2192 Agent can edit the draft \u2192 "
-        "Edited version saved as correct response \u2192 System learns from feedback over time. "
-        "Creates golden evaluations from real usage.",
-        size=8.5
-    )
-    p2 = cell.add_paragraph()
-    p2.space_before = Pt(1)
-    p2.space_after = Pt(2)
-    add_formatted_text(p2, "Guardrails: ", bold=True, size=8.5)
-    add_formatted_text(
-        p2,
-        "Profanity check on all outputs | Adversarial input handling | Misuse prevention | "
-        "Graceful failure with 'no confident answer' fallback.",
-        size=8.5
-    )
-
-    doc.add_paragraph()  # spacer
+    # tight spacer
+    spacer2 = doc.add_paragraph()
+    spacer2.space_before = Pt(2)
+    spacer2.space_after = Pt(0)
 
     # --- Footer ---
     footer_table = doc.add_table(rows=1, cols=3)
