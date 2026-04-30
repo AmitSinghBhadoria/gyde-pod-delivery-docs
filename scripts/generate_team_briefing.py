@@ -4,7 +4,7 @@ Professional internal doc for the engineering team.
 """
 
 from docx import Document
-from docx.shared import Pt, Cm, RGBColor
+from docx.shared import Pt, Cm, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
 from docx.oxml.ns import nsdecls
@@ -295,6 +295,21 @@ def build_doc():
 
     doc.add_paragraph()
 
+    add_heading(doc, "Pilot Dashboard \u2014 Visual Reference", level=2)
+
+    # Embed UI wireframe image
+    wireframe_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "client-docs", "ui_wireframe.png")
+    if os.path.exists(wireframe_path):
+        doc.add_picture(wireframe_path, width=Inches(6.5))
+        last_paragraph = doc.paragraphs[-1]
+        last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        fmt(p, "Figure 1: Pilot Dashboard UI \u2014 Three-panel layout with integrated copilot sidebar",
+            size=8, color=MEDIUM_GRAY)
+
+    doc.add_paragraph()
+
     add_heading(doc, "Post-Pilot: Chrome Extension on Freshdesk", level=2)
 
     add_body(doc, (
@@ -435,6 +450,20 @@ def build_doc():
     add_heading(doc, "6. AI Pipeline Architecture", level=1)
 
     add_body(doc, "The copilot processes every ticket through a 5-step pipeline. Each step is independently testable and measurable.")
+
+    # Embed architecture diagram
+    arch_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "client-docs", "architecture_diagram.png")
+    if os.path.exists(arch_path):
+        doc.add_picture(arch_path, width=Inches(6.5))
+        last_paragraph = doc.paragraphs[-1]
+        last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        fmt(p, "Figure 2: System Architecture \u2014 AI pipeline, data sources, infrastructure, and feedback loop",
+            size=8, color=MEDIUM_GRAY)
+
+    doc.add_paragraph()
+    add_heading(doc, "Pipeline Steps Detail", level=2)
 
     pipeline_steps = [
         ["1. CLASSIFY", "LLM reads ticket text", "Category + Priority + Sentiment",
