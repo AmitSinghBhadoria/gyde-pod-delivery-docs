@@ -245,8 +245,62 @@ def build_doc():
     add_heading(doc, "2. What We're Building", level=1)
 
     add_body(doc, (
-        "An AI copilot that sits alongside the support agent (as a Chrome extension / sidebar widget "
-        "on Freshdesk) and does the cognitive heavy-lifting before the agent acts."
+        "An AI copilot that helps support agents resolve tickets faster. For the pilot, this is a "
+        "standalone web application with an integrated copilot sidebar. Post-pilot, the same backend "
+        "powers a Chrome extension / Freshdesk sidebar widget."
+    ))
+
+    add_heading(doc, "Pilot UI: Support Dashboard with Copilot Sidebar", level=2)
+
+    add_body(doc, "The pilot is a three-panel web application:", space_after=4)
+
+    add_styled_table(doc,
+        ["Panel", "What It Shows", "Notes"],
+        [
+            ["Left: Ticket Queue", "All tickets from the dataset, filterable by category/priority/status",
+             "Loaded from Excel for pilot; Freshworks API in production"],
+            ["Center: Ticket Detail", "Full ticket view \u2014 subject, description, customer, channel, history",
+             "Opens when agent clicks a ticket from the queue"],
+            ["Right: Copilot Sidebar", "Classification, KB matches, recommended action, draft response, confidence",
+             "Auto-triggers when a ticket is selected"],
+        ]
+    )
+
+    doc.add_paragraph()
+
+    add_heading(doc, "How an Agent Uses It (Step by Step)", level=2)
+
+    agent_flow = [
+        ("Opens the app", "Sees the ticket queue with all pending tickets"),
+        ("Clicks a ticket", "Ticket detail opens in the center panel; copilot sidebar auto-processes"),
+        ("Reviews classification", "Category, priority, sentiment \u2014 with confidence score"),
+        ("Reads KB matches", "Top relevant articles with relevance scores \u2014 can expand to read full content"),
+        ("Checks recommended action", "Reply / Ask for more info / Escalate \u2014 with reasoning explanation"),
+        ("Reviews draft response", "AI-generated response grounded in KB articles with citations"),
+        ("Accepts, edits, or overrides", "Agent always has final say \u2014 can modify the draft or write their own"),
+        ("Rates the response", "\"Was this helpful?\" \u2014 feedback is stored for system improvement"),
+    ]
+    for prefix, text in agent_flow:
+        add_bullet(doc, text, bold_prefix=prefix)
+
+    doc.add_paragraph()
+
+    add_callout_box(doc,
+        "Key principle:",
+        "The copilot is NOT a chatbot. The agent does not type questions or have a conversation. "
+        "The copilot automatically analyzes the ticket and presents its recommendations. "
+        "The agent's job is to review, decide, and act.",
+        bg_color="E8F0F8", border_color="2C5F8A"
+    )
+
+    doc.add_paragraph()
+
+    add_heading(doc, "Post-Pilot: Chrome Extension on Freshdesk", level=2)
+
+    add_body(doc, (
+        "After the pilot, the same backend API powers a Chrome extension that overlays on Freshdesk. "
+        "The agent opens a ticket in Freshdesk, the extension detects it, calls the API, and shows "
+        "the copilot sidebar. No change to the copilot logic \u2014 only the trigger surface changes."
     ))
 
     add_heading(doc, "What the copilot does for every ticket", level=2)
@@ -314,7 +368,8 @@ def build_doc():
             ["LLM provider", "Our recommendation", "Must be LLM-agnostic \u2014 swappable"],
             ["Data source (pilot)", "Excel dataset", "36 tickets, 12 KB articles, 5 rules"],
             ["Data source (production)", "Freshworks APIs", "Architect for it, don't build yet"],
-            ["Deployment surface", "Chrome extension / sidebar", "Overlay on Freshdesk"],
+            ["Deployment (pilot)", "Standalone web app with copilot sidebar", "Three-panel dashboard"],
+            ["Deployment (production)", "Chrome extension on Freshdesk", "Same API, different trigger surface"],
             ["Post-pilot handover", "Full on-premises", "Code, models, data \u2014 everything"],
             ["Communication", "1 weekly email + 1 call", "Email + Google Meet"],
             ["Accuracy target", "85%", "Classification, retrieval, action accuracy"],
@@ -547,7 +602,7 @@ def build_doc():
     add_heading(doc, "Amit \u2014 POD Lead", level=2)
     amit_items = [
         "Architecture decisions: system design, tech stack, ADRs",
-        "Chrome extension / sidebar UI",
+        "Pilot web app UI: three-panel dashboard (ticket queue + detail + copilot sidebar)",
         "Code review: final say on all AI components",
         "Evaluation strategy: metric definitions, threshold proposals",
         "Technical demos and client-facing architecture discussions",
