@@ -27,7 +27,7 @@ title: Discovery Call Answers
 - High human cost for repetitive, well-documented issues
 
 ### Volume
-- **~100 tickets/month** currently
+- **~1000 tickets/month** currently
 
 ### Pilot Goal
 - **30% of recurring tickets** (those with defined resolutions, e.g., common Authentication issues) to be answered autonomously by the copilot
