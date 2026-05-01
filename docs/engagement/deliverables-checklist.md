@@ -45,7 +45,7 @@ title: Deliverables Checklist
 | 8 | Engagement Plan | PM | Doc 03, Sec 7 | Done |
 | 9 | Sprint Plan | PM + POD Lead | Doc 04 | Done |
 | 10 | Threat Model (initial) **(NN)** | Governance Engineer | Doc 14 | Done |
-| 11 | Engagement Tailoring Record | POD Lead + PM | Doc 01, Sec 5.1 | --- |
+| 11 | Engagement Tailoring Record | POD Lead + PM | Doc 01, Sec 5.1 | Done |
 
 **Discovery Exit Gate** (Doc 03, Section 3.5):
 - [ ] All 7 Discovery Output Pack artifacts present and internally reviewed
