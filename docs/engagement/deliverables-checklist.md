@@ -36,9 +36,9 @@ title: Deliverables Checklist
 | # | Artifact | Owner | Framework Ref | Status |
 |---|---|---|---|---|
 | 1 | Discovery Call Answers | POD Lead | -- | Done |
-| 2 | Use Case Canvas | POD Lead + PM | Doc 03, Sec 3.4 | --- |
-| 3 | Data Feasibility Report | Data Engineer | Doc 03, Sec 3.4 | --- |
-| 4 | POD Charter | PM + POD Lead | Doc 01, Sec 6 | --- |
+| 2 | Use Case Canvas | POD Lead + PM | Doc 03, Sec 3.4 | Done |
+| 3 | Data Feasibility Report | Data Engineer | Doc 03, Sec 3.4 | Done |
+| 4 | POD Charter | PM + POD Lead | Doc 01, Sec 6 | In Review |
 | 5 | Architecture Sketch | POD Lead | Doc 03, Sec 3.4 | --- |
 | 6 | Evaluation Plan | POD Lead + QA | Doc 03, Sec 3.4 | --- |
 | 7 | Risk Register (initial) | PM | Doc 03, Sec 6 | --- |
