@@ -42,7 +42,7 @@ title: Deliverables Checklist
 | 5 | Architecture Sketch | POD Lead | Doc 03, Sec 3.4 | Done |
 | 6 | Evaluation Plan | POD Lead + QA | Doc 03, Sec 3.4 | Done |
 | 7 | Risk Register (initial) | PM | Doc 03, Sec 6 | Done |
-| 8 | Engagement Plan | PM | Doc 03, Sec 7 | --- |
+| 8 | Engagement Plan | PM | Doc 03, Sec 7 | Done |
 | 9 | Sprint Plan | PM + POD Lead | Doc 04 | --- |
 | 10 | Threat Model (initial) **(NN)** | Governance Engineer | Doc 14 | --- |
 | 11 | Engagement Tailoring Record | POD Lead + PM | Doc 01, Sec 5.1 | --- |
