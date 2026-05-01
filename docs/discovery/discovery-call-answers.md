@@ -144,7 +144,7 @@ title: Discovery Call Answers
 - Post-pilot, the client takes forward the code and knowledge independently
 
 ### Expected Deliverables
-1. Working pilot (Chrome extension / sidebar)
+1. Working pilot (standalone web app -- three-panel dashboard)
 2. Architecture document
 3. Evaluation results (including 1000-question run)
 4. Sample outputs across categories
@@ -190,8 +190,16 @@ title: Discovery Call Answers
 | Data source for production | Freshworks APIs |
 | Cloud platform | GCP (our account) |
 | Post-pilot deployment | On-premises handover |
-| LLM provider | Our recommendation, keep LLM-agnostic |
-| Deployment surface | Chrome extension / sidebar widget |
+| LLM provider | Google Gemini via Vertex AI (LLM-agnostic architecture) |
+| Embeddings | Vertex AI text-embedding-005 |
+| Deployment (pilot) | Standalone web app -- three-panel dashboard |
+| Deployment (production) | Chrome extension / Freshdesk sidebar |
+| Backend | Express (Node.js) |
+| Frontend | React |
+| Operational DB | MongoDB |
+| Search / Retrieval | Elasticsearch (hybrid: vector + BM25) |
+| Orchestration | LangChain.js |
+| Auth | Google Service Account (single identity for all GCP services) |
 | Accuracy target | 85% for pilot |
 | Auto-answer target | 30% of recurring tickets |
 | Go-live validation | 1000 synthetic questions |
