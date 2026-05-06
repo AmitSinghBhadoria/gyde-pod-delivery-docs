@@ -46,6 +46,7 @@ title: Deliverables Checklist
 | 9 | Sprint Plan | PM + POD Lead | Doc 04 | Done |
 | 10 | Threat Model (initial) **(NN)** | Governance Engineer | Doc 14 | Done |
 | 11 | Engagement Tailoring Record | POD Lead + PM | Doc 01, Sec 5.1 | Done |
+| 11a | Product User Stories (epics + sub-stories) | POD Lead + PM | Doc 06 | Done |
 
 **Discovery Exit Gate** (Doc 03, Section 3.5):
 - [ ] All 7 Discovery Output Pack artifacts present and internally reviewed
@@ -59,6 +60,15 @@ title: Deliverables Checklist
 ## Phase 1: Sprint 1 -- Walking Skeleton + Eval Harness
 
 **Goal**: End-to-end working slice (M1) and operational evaluation harness (M2)
+
+### Planning Deliverables
+
+| # | Artifact | Owner | Framework Ref | Status |
+|---|---|---|---|---|
+| 11b | Sprint 1 Role Assignments (per-person task sheet) | POD Lead | Doc 04 | Done |
+| 11c | User Stories Backlog (24 stories, Given/When/Then) | PM + POD Lead | Doc 04, Sec 4.2 | Done |
+| 11d | UI Wireframes | POD Lead | Doc 06 | Done |
+| 11e | System Diagrams (architecture, sequence, flowchart, data flow) | POD Lead | Doc 06 | Done |
 
 ### Engineering Deliverables
 
